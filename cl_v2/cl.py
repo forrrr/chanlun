@@ -130,6 +130,7 @@ class CL:
         self.zss: List[ZS] = []  # 中枢列表
 
         # 初始处理 缠论K线
+        # 将初始 K 线整理为缠论没有包含关系的 k 线
         self.process_cl_kline(klines)
         # 处理 缠论数据
         self.process_cl_datas()
@@ -149,7 +150,7 @@ class CL:
 
     def process_cl_kline(self, klines: pd.DataFrame):
         """
-        将初始 K 线整理为缠论包含关系的 k 线
+        将初始 K 线整理为缠论没有包含关系的 k 线
         :return:
         """
         for i in range(len(klines)):

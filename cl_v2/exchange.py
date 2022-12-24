@@ -7,7 +7,7 @@ import baostock as bs
 import pandas as pd
 
 
-@dataclass
+@dataclass  #数据类
 class Tick:
     code: str
     last: float

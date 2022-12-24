@@ -1,7 +1,12 @@
+#  暂时不用看股票的
+
+
 import json
 import time
 
-from . import rd
+# from . import rd
+
+import rd
 
 
 class StockDLHYRank(object):

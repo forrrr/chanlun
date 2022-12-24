@@ -1,3 +1,14 @@
+# 暂时先不看了，用不上
+
+
+
+
+
+
+
+
+#%%
+
 import sys
 cur_path = sys.path[0]
 sys.path.append(sys.path[0] + "/../..")
@@ -9,10 +20,16 @@ import traceback
 """
 同步数字货币行情到数据库中
 """
-
+print(sys.path) # tc
+#%%
 exchange = exchange_db.ExchangeDB('currency')
+
+#%%
+
 line_exchange = exchange_binance.ExchangeBinance()
 
+
+#%%
 # 创建表
 stocks = line_exchange.all_stocks()
 codes = [s['code'] for s in stocks]
@@ -39,3 +56,4 @@ for code in codes:
         print('执行 %s 同步K线异常' % code)
         print(e)
         print(traceback.format_exc())
+# %%

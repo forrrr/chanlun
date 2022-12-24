@@ -5,8 +5,12 @@ from typing import List, Dict
 import ccxt
 import pandas as pd
 
-from . import config
-from . import exchange
+# from . import config
+# from . import exchange
+
+
+import config
+import exchange
 
 
 class ExchangeBinance(exchange.Exchange):

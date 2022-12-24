@@ -5,8 +5,12 @@ import time
 
 import redis
 
-from . import config
-from . import cl
+# from . import config
+# from . import cl
+
+import config
+import cl
+
 
 r = None
 

@@ -7,11 +7,27 @@ import urllib.parse
 import pyttsx3
 import requests
 
-from . import config
-from . import cl
-from . import exchange_futu
-from . import exchange_binance
-from . import rd
+# from . import config
+# from . import cl
+# from . import exchange_futu
+# from . import exchange_binance
+# from . import rd
+
+#%%
+
+import config
+import cl
+import exchange_futu
+import exchange_binance
+import rd
+
+
+#%%
+# test code 
+import sys
+print(sys.path)
+
+#%%
 
 
 def send_dd_msg(market, msg):
@@ -50,6 +66,8 @@ def send_dd_msg(market, msg):
         'text': {"content": msg},
     })
     return True
+
+#%%
 
 
 def monitoring_code(market: str, code: str, name: str, frequencys: list,
@@ -245,6 +263,9 @@ def convert_currency_order_by_frequency(orders, frequency):
         else:
             dt = o['datetime']
         dt_time = int(time.mktime(dt.timetuple()))
+        #　dt.timetuple() ---->time.struct_time(tm_year=2022, tm_mon=12, tm_mday=24, tm_hour=16, tm_min=12, tm_sec=57, tm_wday=5, tm_yday=358, tm_isdst=-1)
+        #  time.mktime(dt.timetuple())---->1671869577.0
+        #　int(time.mktime(dt.timetuple()))---->1671869577
         seconds = 0
         if frequency == 'd':
             seconds = 24 * 60 * 60
@@ -281,6 +302,8 @@ def time_to_str(_t, _format='%Y-%m-%d %H:%M:%S'):
     :return:
     """
     timeArray = time.localtime(int(_t))
+    #　_t是时间戳
+    # time.localtime() 转为时间结构体：time.struct_time(tm_year=2022, tm_mon=12, tm_mday=24, tm_hour=16, tm_min=33, tm_sec=51, tm_wday=5, tm_yday=358, tm_isdst=0)
     return time.strftime(_format, timeArray)
 
 
@@ -292,6 +315,7 @@ def time_to_int(_t, _format='%Y-%m-%d %H:%M:%S'):
     :return:
     """
     return int(time.mktime(time.strptime(_t, _format)))
+    # time.mktime()---->1671869577.0
 
 
 def str_to_time(_s, _format='%Y-%m-%d %H:%M:%S'):
